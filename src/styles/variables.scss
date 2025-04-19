@@ -39,6 +39,7 @@
   --color-warning: #ff0300;
   --color-success: #1dbf1d;
   --color-link: #0080ff;
+  --primary-color: var(--brand-1);
 
   // 尺寸
   --font-size-xs: 12px;
@@ -81,4 +82,5 @@ html[data-color-scheme="dark"] {
 
   --color-link: #409fff;
   --color-warning: #ff6666;
+  --primary-color: #ff7e33;
 }

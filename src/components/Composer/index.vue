@@ -18,11 +18,12 @@
     </div>
     <button
       v-if="hasValue"
-      class="Composer-sendBtn"
+      class="btn-primary Composer-sendBtn"
       @click="handleSendBtnClick"
       :disabled="!hasValue"
     >
-      发送
+      <i class="fas fa-paper-plane"></i>
+      <span class="send-text">发送</span>
     </button>
   </div>
 </template>
@@ -158,56 +159,67 @@ export default defineComponent({
 <style lang="scss">
 .Composer {
   display: flex;
-  padding: 8px 12px;
+  padding: 12px 16px;
   background: var(--white);
   border-top: 1px solid var(--gray-6);
+  transition: all 0.3s ease;
 
   &-inputWrap {
     flex: 1;
     min-width: 0;
-    margin-right: 8px;
+    margin-right: 12px;
   }
 
   &-input {
     display: block;
     width: 100%;
-    height: 36px;
-    padding: 8px 12px;
+    height: 40px;
+    padding: 10px 16px;
     border: 1px solid var(--gray-5);
-    border-radius: 18px;
+    border-radius: 20px;
     background: var(--gray-7);
     resize: none;
     line-height: 20px;
-    font-size: 14px;
+    font-size: 15px;
     overflow-y: auto;
     -webkit-appearance: none;
+    transition: all 0.3s ease;
 
     &:focus {
       background: var(--white);
-      border-color: var(--primary-color);
+      border-color: var(--brand-1);
+      box-shadow: 0 0 0 3px rgba(var(--brand-1-rgb), 0.1);
+      outline: none;
+    }
+
+    &::placeholder {
+      color: var(--gray-4);
     }
   }
 
   &-sendBtn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 15px;
-    height: 36px;
-    border: none;
-    border-radius: 18px;
-    background-color: var(--primary-color);
-    color: var(--white);
-    font-size: 14px;
-    line-height: 1;
-    cursor: pointer;
-    transition: all 0.2s;
-    user-select: none;
-    -webkit-appearance: none;
+    border-radius: 20px;
+    height: 40px;
+    padding: 0 16px;
 
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
+    .fa-paper-plane {
+      margin-right: 6px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .Composer-sendBtn .send-text {
+    display: none;
+  }
+
+  .Composer-sendBtn {
+    width: 40px;
+    padding: 0;
+
+    .fa-paper-plane {
+      margin-right: 0;
     }
   }
 }
@@ -217,6 +229,25 @@ export default defineComponent({
     position: sticky;
     bottom: 0;
     z-index: 10;
+  }
+}
+
+// 暗色模式适配
+html[data-color-scheme="dark"] {
+  .Composer {
+    background: var(--gray-7);
+    border-top-color: var(--gray-6);
+
+    &-input {
+      background: var(--gray-6);
+      border-color: var(--gray-5);
+      color: var(--gray-2);
+
+      &:focus {
+        background: var(--gray-7);
+        border-color: var(--brand-1);
+      }
+    }
   }
 }
 </style>

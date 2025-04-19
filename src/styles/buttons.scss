@@ -1,0 +1,178 @@
+/**
+ * 统一按钮样式
+ * 包含所有按钮类型的样式定义
+ */
+
+// 基础按钮样式
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  -webkit-appearance: none;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  i, .icon {
+    margin-right: 6px;
+    font-size: 14px;
+  }
+}
+
+// 主要按钮 - 实心橙色背景
+.btn-primary {
+  @extend .btn-base;
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+  color: var(--white);
+  border: none;
+  box-shadow: 0 2px 8px rgba(var(--brand-1-rgb), 0.3);
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(var(--brand-1-rgb), 0.4);
+  }
+  
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(var(--brand-1-rgb), 0.2);
+  }
+}
+
+// 次要按钮 - 白底深色边框
+.btn-outline {
+  @extend .btn-base;
+  background-color: var(--white);
+  color: var(--gray-2);
+  border: 1px solid var(--gray-4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  
+  &:hover {
+    border-color: var(--brand-1);
+    color: var(--brand-1);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  }
+}
+
+// 文本按钮 - 无背景无边框
+.btn-text {
+  @extend .btn-base;
+  background-color: transparent;
+  color: var(--gray-2);
+  border: none;
+  padding: 8px 12px;
+  
+  &:hover {
+    color: var(--brand-1);
+    background-color: var(--gray-7);
+  }
+  
+  &:active {
+    background-color: var(--gray-6);
+  }
+}
+
+// 按钮尺寸
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.btn-lg {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+// 特殊按钮 - 发送按钮
+.send-btn {
+  @extend .btn-primary;
+  border-radius: 20px;
+  height: 40px;
+  padding: 0 16px;
+  
+  .fa-paper-plane {
+    margin-right: 6px;
+    font-size: 14px;
+  }
+}
+
+// 特殊按钮 - 预览操作按钮
+.preview-btn {
+  @extend .btn-outline;
+  padding: 6px 12px;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+// 特殊按钮 - 代码示例标签按钮
+.code-tab {
+  @extend .btn-outline;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  box-shadow: none;
+  
+  &.active {
+    color: var(--brand-1);
+    border-bottom-color: var(--brand-1);
+    background-color: transparent;
+  }
+  
+  &:hover {
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+// 暗色模式适配
+html[data-color-scheme="dark"] {
+  .btn-outline {
+    background-color: var(--gray-6);
+    color: var(--gray-3);
+    border-color: var(--gray-5);
+    
+    &:hover {
+      border-color: var(--brand-1);
+      color: var(--brand-1);
+      background-color: var(--gray-7);
+    }
+  }
+  
+  .btn-text {
+    color: var(--gray-3);
+    
+    &:hover {
+      color: var(--brand-1);
+      background-color: var(--gray-6);
+    }
+  }
+  
+  .preview-btn {
+    background-color: var(--gray-6);
+    
+    &:hover {
+      background-color: var(--gray-7);
+    }
+  }
+}

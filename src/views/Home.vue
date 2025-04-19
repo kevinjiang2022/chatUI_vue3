@@ -11,8 +11,14 @@
             基于阿里巴巴ChatUI的Vue3实现，为开发者提供一套用于构建对话式交互界面的组件库
           </p>
           <div class="hero-buttons">
-            <button class="btn btn-primary">快速开始</button>
-            <button class="btn btn-outline">查看文档</button>
+            <router-link to="/demo" class="btn btn-primary">
+              <i class="fas fa-play-circle"></i>
+              立即体验
+            </router-link>
+            <router-link to="/documentation" class="btn btn-outline">
+              <i class="fas fa-book"></i>
+              查看文档
+            </router-link>
           </div>
         </div>
       </div>
@@ -137,6 +143,13 @@ import 'chatui-vue3/dist/index.css'</code></pre>
               </div>
             </div>
           </div>
+          
+          <div class="cta-container">
+            <router-link to="/components" class="btn btn-primary">
+              <i class="fas fa-cubes"></i>
+              浏览组件
+            </router-link>
+          </div>
         </div>
       </div>
     </section>
@@ -156,9 +169,40 @@ import 'chatui-vue3/dist/index.css'</code></pre>
 
 /* Hero 区域 */
 .hero {
-  padding: 80px 0;
+  padding: 100px 0;
   background-color: var(--white);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 60%;
+  height: 70%;
+  background: linear-gradient(135deg, rgba(255, 98, 0, 0.05), rgba(255, 179, 0, 0.05));
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  left: -10%;
+  width: 60%;
+  height: 70%;
+  background: linear-gradient(135deg, rgba(255, 179, 0, 0.05), rgba(255, 98, 0, 0.05));
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-title {
@@ -168,6 +212,7 @@ import 'chatui-vue3/dist/index.css'</code></pre>
   background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-description {
@@ -175,6 +220,7 @@ import 'chatui-vue3/dist/index.css'</code></pre>
   color: var(--gray-2);
   max-width: 800px;
   margin: 0 auto 30px;
+  line-height: 1.6;
 }
 
 .hero-buttons {
@@ -194,29 +240,48 @@ import 'chatui-vue3/dist/index.css'</code></pre>
   font-size: 16px;
   transition: all 0.3s ease;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.btn i {
+  margin-right: 8px;
+  font-size: 18px;
 }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
   color: white;
   border: none;
+  box-shadow: 0 4px 12px rgba(var(--brand-1-rgb), 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 98, 0, 0.2);
+  box-shadow: 0 6px 16px rgba(var(--brand-1-rgb), 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(var(--brand-1-rgb), 0.2);
 }
 
 .btn-outline {
   background: transparent;
   color: var(--gray-1);
   border: 2px solid var(--gray-5);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
 .btn-outline:hover {
   border-color: var(--brand-1);
   color: var(--brand-1);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.btn-outline:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 /* 特性部分 */
@@ -230,6 +295,7 @@ import 'chatui-vue3/dist/index.css'</code></pre>
   font-weight: bold;
   text-align: center;
   margin-bottom: 50px;
+  color: var(--gray-1);
 }
 
 .features-grid {
@@ -241,9 +307,10 @@ import 'chatui-vue3/dist/index.css'</code></pre>
 .feature-card {
   background-color: var(--white);
   border-radius: 12px;
-  padding: 24px;
+  padding: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+  height: 100%;
 }
 
 .feature-card:hover {
@@ -259,8 +326,8 @@ import 'chatui-vue3/dist/index.css'</code></pre>
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
-  color: white;
+  margin-bottom: 20px;
+  color: var(--brand-1);
   font-size: 24px;
 }
 
@@ -268,10 +335,12 @@ import 'chatui-vue3/dist/index.css'</code></pre>
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 12px;
+  color: var(--gray-1);
 }
 
 .feature-desc {
   color: var(--gray-3);
+  line-height: 1.6;
 }
 
 /* 快速上手 */
@@ -295,7 +364,7 @@ import 'chatui-vue3/dist/index.css'</code></pre>
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--brand-1);
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
   color: white;
   display: flex;
   align-items: center;
@@ -303,12 +372,14 @@ import 'chatui-vue3/dist/index.css'</code></pre>
   font-weight: bold;
   margin-right: 20px;
   flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(var(--brand-1-rgb), 0.2);
 }
 
 .step-title {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 12px;
+  color: var(--gray-1);
 }
 
 .code-block {
@@ -316,6 +387,7 @@ import 'chatui-vue3/dist/index.css'</code></pre>
   border-radius: 8px;
   padding: 16px;
   overflow-x: auto;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .code-block pre {
@@ -323,12 +395,23 @@ import 'chatui-vue3/dist/index.css'</code></pre>
 }
 
 .code-block code {
-  font-family: monospace;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   color: var(--gray-1);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cta-container {
+  text-align: center;
+  margin-top: 40px;
 }
 
 /* 响应式调整 */
 @media (max-width: 768px) {
+  .hero {
+    padding: 60px 0;
+  }
+  
   .hero-title {
     font-size: 36px;
   }
@@ -349,6 +432,39 @@ import 'chatui-vue3/dist/index.css'</code></pre>
   .btn {
     width: 100%;
     max-width: 300px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .step {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .step-number {
+    margin-bottom: 16px;
+  }
+}
+
+/* 暗色模式适配 */
+html[data-color-scheme="dark"] {
+  .feature-card {
+    background-color: var(--gray-6);
+  }
+  
+  .feature-icon {
+    background: linear-gradient(135deg, rgba(var(--brand-1-rgb), 0.2), rgba(var(--brand-2-rgb), 0.2));
+  }
+  
+  .code-block {
+    background-color: var(--gray-6);
+  }
+  
+  .code-block code {
+    color: var(--gray-2);
   }
 }
 </style>

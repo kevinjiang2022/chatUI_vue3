@@ -6,19 +6,19 @@
         <div class="header-content">
           <!-- Logo -->
           <div class="logo-container">
-            <a href="/" class="logo">
+            <router-link to="/" class="logo">
               <span class="logo-text">ChatUI Vue3</span>
-            </a>
+            </router-link>
           </div>
 
           <!-- 导航菜单 -->
           <nav class="nav-menu">
-            <router-link to="/" class="nav-item">首页</router-link>
+            <router-link to="/" class="nav-item" exact>首页</router-link>
             <router-link to="/components" class="nav-item">组件</router-link>
             <router-link to="/documentation" class="nav-item">文档</router-link>
             <router-link to="/demo" class="nav-item">演示</router-link>
             <a href="https://github.com/your-username/chatui-vue3" target="_blank" class="nav-item github-link">
-              <i class="fas fa-github"></i>
+              <i class="fab fa-github"></i>
               GitHub
             </a>
           </nav>
@@ -35,12 +35,12 @@
       <!-- 移动端菜单 -->
       <div v-if="mobileMenuOpen" class="mobile-menu">
         <div class="container">
-          <router-link to="/" class="mobile-nav-item" @click="closeMobileMenu">首页</router-link>
+          <router-link to="/" class="mobile-nav-item" exact @click="closeMobileMenu">首页</router-link>
           <router-link to="/components" class="mobile-nav-item" @click="closeMobileMenu">组件</router-link>
           <router-link to="/documentation" class="mobile-nav-item" @click="closeMobileMenu">文档</router-link>
           <router-link to="/demo" class="mobile-nav-item" @click="closeMobileMenu">演示</router-link>
           <a href="https://github.com/your-username/chatui-vue3" target="_blank" class="mobile-nav-item">
-            <i class="fas fa-github"></i>
+            <i class="fab fa-github"></i>
             GitHub
           </a>
         </div>
@@ -67,16 +67,16 @@
             <div class="footer-links-group">
               <h3 class="footer-links-title">资源</h3>
               <ul class="footer-links-list">
-                <li><a href="#" class="footer-link">组件</a></li>
-                <li><a href="#" class="footer-link">文档</a></li>
-                <li><a href="#" class="footer-link">示例</a></li>
+                <li><router-link to="/components" class="footer-link">组件</router-link></li>
+                <li><router-link to="/documentation" class="footer-link">文档</router-link></li>
+                <li><router-link to="/demo" class="footer-link">示例</router-link></li>
               </ul>
             </div>
 
             <div class="footer-links-group">
               <h3 class="footer-links-title">社区</h3>
               <ul class="footer-links-list">
-                <li><a href="#" class="footer-link">GitHub</a></li>
+                <li><a href="https://github.com/your-username/chatui-vue3" target="_blank" class="footer-link">GitHub</a></li>
                 <li><a href="#" class="footer-link">交流群</a></li>
                 <li><a href="#" class="footer-link">贡献指南</a></li>
               </ul>
@@ -120,14 +120,20 @@ const closeMobileMenu = () => {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 70px;
 }
 
 .logo {
@@ -137,7 +143,7 @@ const closeMobileMenu = () => {
 }
 
 .logo-text {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
   -webkit-background-clip: text;
@@ -154,12 +160,13 @@ const closeMobileMenu = () => {
 .nav-item {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 0.75rem;
+  padding: 8px 16px;
   color: var(--gray-2);
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.2s ease;
-  border-radius: 6px;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin: 0 4px;
 }
 
 .nav-item:hover {
@@ -167,7 +174,8 @@ const closeMobileMenu = () => {
   background-color: var(--gray-7);
 }
 
-.nav-item.router-link-active {
+.nav-item.router-link-active,
+.nav-item.router-link-exact-active {
   color: var(--brand-1);
   background-color: var(--brand-4);
 }
@@ -177,35 +185,49 @@ const closeMobileMenu = () => {
   align-items: center;
 }
 
+.github-link i {
+  margin-right: 6px;
+  font-size: 18px;
+}
+
 .mobile-menu-button {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: 4px;
-  background-color: transparent;
+  border-radius: 8px;
+  background-color: var(--gray-7);
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
+  color: var(--gray-2);
 }
 
 .mobile-menu-button:hover {
-  background-color: var(--gray-7);
+  background-color: var(--brand-4);
+  color: var(--brand-1);
+}
+
+.mobile-menu-button i {
+  font-size: 18px;
 }
 
 .mobile-menu {
   background-color: var(--white);
   border-bottom: 1px solid var(--gray-6);
+  padding: 10px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .mobile-nav-item {
-  display: block;
-  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
   color: var(--gray-2);
   font-weight: 500;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
   border-bottom: 1px solid var(--gray-6);
 }
 
@@ -217,8 +239,14 @@ const closeMobileMenu = () => {
   color: var(--brand-1);
 }
 
-.mobile-nav-item.router-link-active {
+.mobile-nav-item.router-link-active,
+.mobile-nav-item.router-link-exact-active {
   color: var(--brand-1);
+}
+
+.mobile-nav-item i {
+  margin-right: 10px;
+  font-size: 18px;
 }
 
 /* 主内容区 */
@@ -231,7 +259,7 @@ const closeMobileMenu = () => {
   background-color: var(--white);
   border-top: 1px solid var(--gray-6);
   margin-top: 3rem;
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
 .footer-content {
@@ -241,7 +269,7 @@ const closeMobileMenu = () => {
 }
 
 .footer-info {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .footer-description {
@@ -262,7 +290,7 @@ const closeMobileMenu = () => {
   letter-spacing: 0.5px;
   font-size: 0.85rem;
   font-weight: bold;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .footer-links-list {
@@ -274,7 +302,7 @@ const closeMobileMenu = () => {
 .footer-link {
   color: var(--gray-3);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
   font-size: 0.95rem;
   display: inline-block;
   padding: 0.25rem 0;
@@ -282,6 +310,7 @@ const closeMobileMenu = () => {
 
 .footer-link:hover {
   color: var(--brand-1);
+  transform: translateX(3px);
 }
 
 .footer-copyright {
@@ -295,7 +324,7 @@ const closeMobileMenu = () => {
 .link {
   color: var(--brand-1);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
   font-weight: 500;
 }
 
@@ -307,7 +336,7 @@ const closeMobileMenu = () => {
 @media (min-width: 768px) {
   .nav-menu {
     display: flex;
-    gap: 1.5rem;
+    gap: 0.5rem;
   }
 
   .mobile-menu-button-container {
@@ -321,6 +350,27 @@ const closeMobileMenu = () => {
 
   .footer-info {
     margin-bottom: 0;
+  }
+}
+
+/* 暗色模式适配 */
+html[data-color-scheme="dark"] {
+  .header {
+    background-color: var(--gray-7);
+    border-bottom-color: var(--gray-6);
+  }
+  
+  .mobile-menu {
+    background-color: var(--gray-7);
+  }
+  
+  .footer {
+    background-color: var(--gray-7);
+    border-top-color: var(--gray-6);
+  }
+  
+  .footer-copyright {
+    border-top-color: var(--gray-6);
   }
 }
 </style>

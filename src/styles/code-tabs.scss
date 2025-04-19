@@ -1,0 +1,78 @@
+/**
+ * 代码示例标签按钮样式
+ * 用于代码示例页面的标签式导航
+ */
+
+.code-tabs {
+  display: flex;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--gray-4);
+  background-color: var(--white);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden;
+}
+
+/* 代码示例标签样式现在使用 .btn-outline 类，并添加以下特殊样式 */
+.code-tabs .btn-outline {
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+  box-shadow: none;
+  margin: 0;
+  padding: 10px 20px;
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+    background-color: var(--gray-7);
+  }
+
+  &.active {
+    color: var(--brand-1);
+    border-bottom-color: var(--brand-1);
+    background-color: transparent;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--brand-1);
+    }
+  }
+
+  &:first-child {
+    border-top-left-radius: 8px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 8px;
+  }
+}
+
+/* 暗色模式适配 */
+html[data-color-scheme="dark"] {
+  .code-tabs {
+    background-color: var(--gray-6);
+    border-bottom-color: var(--gray-5);
+  }
+
+  .code-tabs .btn-outline {
+    background-color: transparent;
+    color: var(--gray-3);
+
+    &:hover {
+      color: var(--brand-1);
+      background-color: var(--gray-7);
+    }
+
+    &.active {
+      color: var(--brand-1);
+      background-color: transparent;
+    }
+  }
+}

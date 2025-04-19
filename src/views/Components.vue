@@ -17,13 +17,13 @@
           <div class="sticky top-4">
             <div class="bg-white rounded-lg shadow-sm p-4">
               <div class="mb-4">
-                <input 
-                  type="text" 
-                  placeholder="搜索组件..." 
+                <input
+                  type="text"
+                  placeholder="搜索组件..."
                   class="w-full px-3 py-2 border border-gray-5 rounded-md focus:outline-none focus:border-brand-1"
                 />
               </div>
-              
+
               <nav class="components-nav">
                 <div class="nav-group mb-4">
                   <h3 class="text-sm font-bold text-gray-2 uppercase mb-2">对话组件</h3>
@@ -35,7 +35,7 @@
                     <li><a href="#quick-replies" class="nav-link">QuickReplies 快捷回复</a></li>
                   </ul>
                 </div>
-                
+
                 <div class="nav-group mb-4">
                   <h3 class="text-sm font-bold text-gray-2 uppercase mb-2">基础组件</h3>
                   <ul class="space-y-1">
@@ -45,7 +45,7 @@
                     <li><a href="#composer" class="nav-link">Composer 输入框</a></li>
                   </ul>
                 </div>
-                
+
                 <div class="nav-group">
                   <h3 class="text-sm font-bold text-gray-2 uppercase mb-2">功能组件</h3>
                   <ul class="space-y-1">
@@ -57,7 +57,7 @@
             </div>
           </div>
         </aside>
-        
+
         <!-- 主内容区 -->
         <main class="flex-1">
           <!-- 组件展示卡片 -->
@@ -69,24 +69,24 @@
                   Chat 组件是整个对话界面的容器，包含了导航栏、消息列表、输入框等组件。
                 </p>
               </div>
-              
+
               <div class="p-6">
                 <!-- 组件预览 -->
                 <div class="component-preview mb-8">
                   <div class="preview-header flex justify-between items-center mb-4">
                     <h3 class="text-lg font-bold">预览</h3>
                     <div class="preview-actions">
-                      <button class="preview-btn">
+                      <button class="btn-outline">
                         <i class="icon icon-refresh"></i>
                         重置
                       </button>
-                      <button class="preview-btn">
+                      <button class="btn-outline">
                         <i class="icon icon-code"></i>
                         查看代码
                       </button>
                     </div>
                   </div>
-                  
+
                   <div class="preview-container border border-gray-5 rounded-lg overflow-hidden" style="height: 500px;">
                     <!-- 这里放置 Chat 组件的预览 -->
                     <div class="chat-demo">
@@ -127,14 +127,14 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <!-- 代码示例 -->
                 <div class="code-example mb-8">
                   <h3 class="text-lg font-bold mb-4">代码示例</h3>
                   <div class="code-tabs">
-                    <button class="code-tab active">基础用法</button>
-                    <button class="code-tab">自定义导航栏</button>
-                    <button class="code-tab">自定义消息</button>
+                    <button class="btn-outline active">基础用法</button>
+                    <button class="btn-outline">自定义导航栏</button>
+                    <button class="btn-outline">自定义消息</button>
                   </div>
                   <div class="code-block">
                     <pre><code>&lt;template&gt;
@@ -187,11 +187,11 @@ const handleSend = (type, text) => {
 &lt;/script&gt;</code></pre>
                   </div>
                 </div>
-                
+
                 <!-- API 文档 -->
                 <div class="api-docs">
                   <h3 class="text-lg font-bold mb-4">API</h3>
-                  
+
                   <div class="mb-6">
                     <h4 class="text-md font-bold mb-2">Props</h4>
                     <div class="overflow-x-auto">
@@ -239,7 +239,7 @@ const handleSend = (type, text) => {
                       </table>
                     </div>
                   </div>
-                  
+
                   <div class="mb-6">
                     <h4 class="text-md font-bold mb-2">Events</h4>
                     <div class="overflow-x-auto">
@@ -266,7 +266,7 @@ const handleSend = (type, text) => {
                       </table>
                     </div>
                   </div>
-                  
+
                   <div>
                     <h4 class="text-md font-bold mb-2">Slots</h4>
                     <div class="overflow-x-auto">
@@ -302,7 +302,7 @@ const handleSend = (type, text) => {
               </div>
             </div>
           </section>
-          
+
           <!-- 更多组件卡片 -->
           <section id="bubble" class="component-section mt-8">
             <div class="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -312,24 +312,24 @@ const handleSend = (type, text) => {
                   Bubble 组件用于展示消息内容，支持文本、图片、视频等多种类型。
                 </p>
               </div>
-              
+
               <div class="p-6">
                 <!-- 组件预览 -->
                 <div class="component-preview mb-8">
                   <div class="preview-header flex justify-between items-center mb-4">
                     <h3 class="text-lg font-bold">预览</h3>
                     <div class="preview-actions">
-                      <button class="preview-btn">
+                      <button class="btn-outline">
                         <i class="icon icon-refresh"></i>
                         重置
                       </button>
-                      <button class="preview-btn">
+                      <button class="btn-outline">
                         <i class="icon icon-code"></i>
                         查看代码
                       </button>
                     </div>
                   </div>
-                  
+
                   <div class="preview-container border border-gray-5 rounded-lg p-6">
                     <!-- 这里放置 Bubble 组件的预览 -->
                     <div class="bubble-demo flex flex-col gap-4">
@@ -345,13 +345,13 @@ const handleSend = (type, text) => {
                     </div>
                   </div>
                 </div>
-                
+
                 <!-- 代码示例 -->
                 <div class="code-example mb-8">
                   <h3 class="text-lg font-bold mb-4">代码示例</h3>
                   <div class="code-tabs">
-                    <button class="code-tab active">基础用法</button>
-                    <button class="code-tab">富文本</button>
+                    <button class="btn-outline active">基础用法</button>
+                    <button class="btn-outline">富文本</button>
                   </div>
                   <div class="code-block">
                     <pre><code>&lt;template&gt;
@@ -363,11 +363,11 @@ import { Bubble } from 'chatui-vue3';
 &lt;/script&gt;</code></pre>
                   </div>
                 </div>
-                
+
                 <!-- API 文档 -->
                 <div class="api-docs">
                   <h3 class="text-lg font-bold mb-4">API</h3>
-                  
+
                   <div class="mb-6">
                     <h4 class="text-md font-bold mb-2">Props</h4>
                     <div class="overflow-x-auto">
@@ -447,46 +447,9 @@ import { Bubble } from 'chatui-vue3';
   scroll-margin-top: 20px;
 }
 
-.preview-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 12px;
-  border-radius: 4px;
-  background-color: var(--gray-7);
-  color: var(--gray-2);
-  font-size: 14px;
-  margin-left: 8px;
-  transition: all 0.2s ease;
-}
+/* 预览按钮样式已移至全局 buttons.scss */
 
-.preview-btn:hover {
-  background-color: var(--gray-6);
-  color: var(--gray-1);
-}
-
-/* 代码示例 */
-.code-tabs {
-  display: flex;
-  border-bottom: 1px solid var(--gray-5);
-  margin-bottom: 16px;
-}
-
-.code-tab {
-  padding: 8px 16px;
-  font-size: 14px;
-  color: var(--gray-2);
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s ease;
-}
-
-.code-tab:hover {
-  color: var(--gray-1);
-}
-
-.code-tab.active {
-  color: var(--brand-1);
-  border-bottom-color: var(--brand-1);
-}
+/* 代码示例样式已移至全局 code-tabs.scss */
 
 .code-block {
   background-color: var(--gray-1);
@@ -628,13 +591,7 @@ import { Bubble } from 'chatui-vue3';
   color: var(--gray-3);
 }
 
-.composer-send-btn {
-  padding: 4px 12px;
-  border-radius: 4px;
-  background-color: var(--brand-1);
-  color: white;
-  font-size: 14px;
-}
+/* 发送按钮样式已移至全局 buttons.scss */
 
 /* Bubble 演示 */
 .bubble-demo {

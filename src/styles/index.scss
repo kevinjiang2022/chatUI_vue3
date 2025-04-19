@@ -19,6 +19,12 @@
 // 5. 工具类
 @use './utilities.scss' as utilities;
 
+// 6. 按钮统一样式
+@use './buttons.scss' as buttons;
+
+// 7. 代码示例标签样式
+@use './code-tabs.scss' as code-tabs;
+
 // 老年模式
 .ChatApp[data-elder-mode="true"] {
   font-size: 16px;
