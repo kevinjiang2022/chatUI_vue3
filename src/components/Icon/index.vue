@@ -1,8 +1,7 @@
 <template>
-  <svg 
-    :class="['Icon', { 'is-spin': spin }, className]" 
-    v-bind="ariaProps"
-    v-bind="$attrs"
+  <svg
+    :class="['Icon', { 'is-spin': spin }, className]"
+    v-bind="{...ariaProps, ...$attrs}"
   >
     <use :xlink:href="`#icon-${type}`" />
   </svg>
@@ -33,8 +32,8 @@ export default defineComponent({
   },
   setup(props) {
     const ariaProps = computed(() => {
-      return typeof props.name === 'string' && props.name !== '' 
-        ? { 'aria-label': props.name } 
+      return typeof props.name === 'string' && props.name !== ''
+        ? { 'aria-label': props.name }
         : { 'aria-hidden': 'true' };
     });
 
