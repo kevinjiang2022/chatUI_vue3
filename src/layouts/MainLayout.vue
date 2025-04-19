@@ -2,45 +2,45 @@
   <div class="main-layout">
     <!-- 顶部导航栏 -->
     <header class="header">
-      <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-16">
+      <div class="container">
+        <div class="header-content">
           <!-- Logo -->
-          <div class="flex items-center">
+          <div class="logo-container">
             <a href="/" class="logo">
               <span class="logo-text">ChatUI Vue3</span>
             </a>
           </div>
 
           <!-- 导航菜单 -->
-          <nav class="hidden md:flex space-x-6">
+          <nav class="nav-menu">
             <router-link to="/" class="nav-item">首页</router-link>
             <router-link to="/components" class="nav-item">组件</router-link>
             <router-link to="/documentation" class="nav-item">文档</router-link>
             <router-link to="/demo" class="nav-item">演示</router-link>
             <a href="https://github.com/your-username/chatui-vue3" target="_blank" class="nav-item github-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              <i class="fas fa-github"></i>
               GitHub
             </a>
           </nav>
 
           <!-- 移动端菜单按钮 -->
-          <div class="md:hidden">
+          <div class="mobile-menu-button-container">
             <button @click="toggleMobileMenu" class="mobile-menu-button">
-              <i class="icon" :class="mobileMenuOpen ? 'icon-close' : 'icon-menu'"></i>
+              <i class="fas" :class="mobileMenuOpen ? 'fa-times' : 'fa-bars'"></i>
             </button>
           </div>
         </div>
       </div>
 
       <!-- 移动端菜单 -->
-      <div v-if="mobileMenuOpen" class="md:hidden mobile-menu">
-        <div class="container mx-auto px-4 py-2">
+      <div v-if="mobileMenuOpen" class="mobile-menu">
+        <div class="container">
           <router-link to="/" class="mobile-nav-item" @click="closeMobileMenu">首页</router-link>
           <router-link to="/components" class="mobile-nav-item" @click="closeMobileMenu">组件</router-link>
           <router-link to="/documentation" class="mobile-nav-item" @click="closeMobileMenu">文档</router-link>
           <router-link to="/demo" class="mobile-nav-item" @click="closeMobileMenu">演示</router-link>
           <a href="https://github.com/your-username/chatui-vue3" target="_blank" class="mobile-nav-item">
-            <i class="icon icon-github"></i>
+            <i class="fas fa-github"></i>
             GitHub
           </a>
         </div>
@@ -54,46 +54,37 @@
 
     <!-- 页脚 -->
     <footer class="footer">
-      <div class="container mx-auto px-4 py-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-4 md:mb-0">
-            <div class="logo-text mb-2">ChatUI Vue3</div>
-            <p class="text-gray-3 text-sm">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <div class="logo-text">ChatUI Vue3</div>
+            <p class="footer-description">
               基于阿里巴巴 ChatUI 的 Vue3 实现
             </p>
           </div>
 
-          <div class="flex flex-col md:flex-row md:space-x-8">
-            <div class="footer-links mb-4 md:mb-0">
-              <h3 class="text-sm font-bold mb-2">资源</h3>
-              <ul class="space-y-1">
+          <div class="footer-links-container">
+            <div class="footer-links-group">
+              <h3 class="footer-links-title">资源</h3>
+              <ul class="footer-links-list">
                 <li><a href="#" class="footer-link">组件</a></li>
                 <li><a href="#" class="footer-link">文档</a></li>
                 <li><a href="#" class="footer-link">示例</a></li>
               </ul>
             </div>
 
-            <div class="footer-links mb-4 md:mb-0">
-              <h3 class="text-sm font-bold mb-2">社区</h3>
-              <ul class="space-y-1">
+            <div class="footer-links-group">
+              <h3 class="footer-links-title">社区</h3>
+              <ul class="footer-links-list">
                 <li><a href="#" class="footer-link">GitHub</a></li>
                 <li><a href="#" class="footer-link">交流群</a></li>
                 <li><a href="#" class="footer-link">贡献指南</a></li>
               </ul>
             </div>
-
-            <div class="footer-links">
-              <h3 class="text-sm font-bold mb-2">更多</h3>
-              <ul class="space-y-1">
-                <li><a href="#" class="footer-link">关于我们</a></li>
-                <li><a href="#" class="footer-link">联系我们</a></li>
-                <li><a href="#" class="footer-link">隐私政策</a></li>
-              </ul>
-            </div>
           </div>
         </div>
 
-        <div class="mt-8 pt-8 border-t border-gray-6 text-center text-gray-3 text-sm">
+        <div class="footer-copyright">
           <p>© {{ new Date().getFullYear() }} ChatUI Vue3. 基于 <a href="https://github.com/alibaba/ChatUI" target="_blank" class="link">阿里巴巴 ChatUI</a> 的 Vue3 实现。</p>
         </div>
       </div>
@@ -132,6 +123,13 @@ const closeMobileMenu = () => {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -147,6 +145,10 @@ const closeMobileMenu = () => {
   background-clip: text;
   color: transparent;
   letter-spacing: -0.5px;
+}
+
+.nav-menu {
+  display: none;
 }
 
 .nav-item {
@@ -229,13 +231,44 @@ const closeMobileMenu = () => {
   background-color: var(--white);
   border-top: 1px solid var(--gray-6);
   margin-top: 3rem;
+  padding: 2rem 0;
 }
 
-.footer-links h3 {
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.footer-info {
+  margin-bottom: 1.5rem;
+}
+
+.footer-description {
+  color: var(--gray-3);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.footer-links-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-links-title {
   color: var(--gray-1);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-link {
@@ -251,6 +284,14 @@ const closeMobileMenu = () => {
   color: var(--brand-1);
 }
 
+.footer-copyright {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-6);
+  text-align: center;
+  color: var(--gray-3);
+  font-size: 0.875rem;
+}
+
 .link {
   color: var(--brand-1);
   text-decoration: none;
@@ -260,5 +301,26 @@ const closeMobileMenu = () => {
 
 .link:hover {
   text-decoration: underline;
+}
+
+/* 响应式样式 */
+@media (min-width: 768px) {
+  .nav-menu {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .mobile-menu-button-container {
+    display: none;
+  }
+
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer-info {
+    margin-bottom: 0;
+  }
 }
 </style>

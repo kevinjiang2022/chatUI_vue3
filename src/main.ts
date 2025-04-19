@@ -1,9 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-// 先导入 Tailwind CSS
-import './styles/tailwind.css'
-// 再导入自定义样式，确保自定义样式可以覆盖 Tailwind
+// 导入自定义样式
 import './styles/index.scss'
 
 // 创建SVG图标
