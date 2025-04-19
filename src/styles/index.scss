@@ -1,5 +1,23 @@
+/**
+ * 主样式文件
+ * 使用现代的 Sass 模块系统
+ * 按照依赖关系顺序导入
+ */
+
+// 1. 变量必须先导入，因为其他模块依赖它
 @use './variables.scss' as variables;
+
+// 2. 混合器和函数
+@use './mixins.scss' as mixins;
+
+// 3. 全局基础样式
 @use './global.scss' as global;
+
+// 4. 主题相关
+@use './themes.scss' as themes;
+
+// 5. 工具类
+@use './utilities.scss' as utilities;
 
 // 老年模式
 .ChatApp[data-elder-mode="true"] {

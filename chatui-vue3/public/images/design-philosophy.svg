@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" rx="12" fill="#F5F5F7"/>
+  <rect x="50" y="50" width="200" height="300" rx="8" fill="white" stroke="#E5E5E5" stroke-width="2"/>
+  <rect x="350" y="50" width="200" height="300" rx="8" fill="white" stroke="#E5E5E5" stroke-width="2"/>
+  
+  <!-- Left device chat bubbles -->
+  <circle cx="80" cy="80" r="15" fill="#CCCCCC"/>
+  <rect x="110" y="70" width="120" height="30" rx="15" fill="#FFE0CC"/>
+  
+  <circle cx="80" cy="130" r="15" fill="#CCCCCC"/>
+  <rect x="110" y="120" width="100" height="30" rx="15" fill="#FFE0CC"/>
+  
+  <rect x="170" y="170" width="60" height="30" rx="15" fill="#FFEFE5"/>
+  <circle cx="220" cy="180" r="15" fill="#CCCCCC"/>
+  
+  <circle cx="80" cy="230" r="15" fill="#CCCCCC"/>
+  <rect x="110" y="220" width="130" height="30" rx="15" fill="#FFE0CC"/>
+  
+  <rect x="150" y="270" width="80" height="30" rx="15" fill="#FFEFE5"/>
+  <circle cx="220" cy="280" r="15" fill="#CCCCCC"/>
+  
+  <!-- Right device chat bubbles -->
+  <circle cx="380" cy="80" r="15" fill="#CCCCCC"/>
+  <rect x="410" y="70" width="120" height="30" rx="15" fill="#FFE0CC"/>
+  
+  <rect x="470" y="120" width="60" height="30" rx="15" fill="#FFEFE5"/>
+  <circle cx="520" cy="130" r="15" fill="#CCCCCC"/>
+  
+  <circle cx="380" cy="180" r="15" fill="#CCCCCC"/>
+  <rect x="410" y="170" width="100" height="30" rx="15" fill="#FFE0CC"/>
+  
+  <rect x="450" y="220" width="80" height="30" rx="15" fill="#FFEFE5"/>
+  <circle cx="520" cy="230" r="15" fill="#CCCCCC"/>
+  
+  <circle cx="380" cy="280" r="15" fill="#CCCCCC"/>
+  <rect x="410" y="270" width="130" height="30" rx="15" fill="#FFE0CC"/>
+  
+  <!-- Connection lines -->
+  <path d="M250 150 L350 150" stroke="#FF6200" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M250 200 L350 200" stroke="#FF6200" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M250 250 L350 250" stroke="#FF6200" stroke-width="2" stroke-dasharray="5 5"/>
+  
+  <!-- Center design elements -->
+  <circle cx="300" cy="150" r="10" fill="#FF6200"/>
+  <circle cx="300" cy="200" r="10" fill="#FF6200"/>
+  <circle cx="300" cy="250" r="10" fill="#FF6200"/>
+  
+  <text x="300" y="350" text-anchor="middle" font-family="Arial" font-size="14" fill="#333333">用户体验设计</text>
+</svg>

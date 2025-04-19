@@ -1,7 +1,7 @@
 <template>
-  <div 
-    class="Composer" 
-    :data-has-value="hasValue" 
+  <div
+    class="Composer"
+    :data-has-value="hasValue"
     :data-has-text-once="!!textOnce"
   >
     <div class="Composer-inputWrap">
@@ -16,9 +16,9 @@
         @input="handleTextChange"
       ></textarea>
     </div>
-    <button 
-      v-if="hasValue" 
-      class="Composer-sendBtn" 
+    <button
+      v-if="hasValue"
+      class="Composer-sendBtn"
       @click="handleSendBtnClick"
       :disabled="!hasValue"
     >
@@ -115,6 +115,7 @@ export default defineComponent({
       if (!e.shiftKey && e.key === 'Enter') {
         send();
         e.preventDefault();
+        e.stopPropagation(); // 阻止事件冒泡
       }
     };
 

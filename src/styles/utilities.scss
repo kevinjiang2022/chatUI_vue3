@@ -1,0 +1,260 @@
+/**
+ * 工具类集合
+ * 包含间距、文本、布局等常用工具类
+ */
+@use 'sass:map';
+@use './mixins.scss' as mixins;
+
+// 间距
+$spacers: (
+  '0': 0,
+  '1': 0.25rem,
+  '2': 0.5rem,
+  '3': 0.75rem,
+  '4': 1rem,
+  '5': 1.5rem,
+  '6': 2rem,
+  '8': 3rem,
+  '10': 4rem,
+  '12': 5rem
+);
+
+// 生成间距工具类
+@each $name, $value in $spacers {
+  // Margin
+  .m-#{$name} {
+    margin: $value;
+  }
+
+  .mx-#{$name} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+
+  .my-#{$name} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+
+  .mt-#{$name} {
+    margin-top: $value;
+  }
+
+  .mr-#{$name} {
+    margin-right: $value;
+  }
+
+  .mb-#{$name} {
+    margin-bottom: $value;
+  }
+
+  .ml-#{$name} {
+    margin-left: $value;
+  }
+
+  // Padding
+  .p-#{$name} {
+    padding: $value;
+  }
+
+  .px-#{$name} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+
+  .py-#{$name} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+
+  .pt-#{$name} {
+    padding-top: $value;
+  }
+
+  .pr-#{$name} {
+    padding-right: $value;
+  }
+
+  .pb-#{$name} {
+    padding-bottom: $value;
+  }
+
+  .pl-#{$name} {
+    padding-left: $value;
+  }
+}
+
+// 文本对齐
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// 文本大小
+.text-xs {
+  font-size: var(--font-size-xs);
+}
+
+.text-sm {
+  font-size: var(--font-size-sm);
+}
+
+.text-md {
+  font-size: var(--font-size-md);
+}
+
+.text-lg {
+  font-size: var(--font-size-lg);
+}
+
+// 文本颜色
+.text-primary {
+  color: var(--brand-1);
+}
+
+.text-secondary {
+  color: var(--brand-2);
+}
+
+.text-gray-1 {
+  color: var(--gray-1);
+}
+
+.text-gray-2 {
+  color: var(--gray-2);
+}
+
+.text-gray-3 {
+  color: var(--gray-3);
+}
+
+.text-white {
+  color: var(--white);
+}
+
+// 背景颜色
+.bg-primary {
+  background-color: var(--brand-1);
+}
+
+.bg-secondary {
+  background-color: var(--brand-2);
+}
+
+.bg-white {
+  background-color: var(--white);
+}
+
+.bg-gray-7 {
+  background-color: var(--gray-7);
+}
+
+// 显示
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-grid {
+  display: grid;
+}
+
+// Flex 工具类
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-stretch {
+  align-items: stretch;
+}
+
+// 响应式工具类
+@each $breakpoint, $value in mixins.$breakpoints {
+  @include mixins.respond-to($breakpoint) {
+    .d-#{$breakpoint}-none {
+      display: none;
+    }
+
+    .d-#{$breakpoint}-block {
+      display: block;
+    }
+
+    .d-#{$breakpoint}-flex {
+      display: flex;
+    }
+
+    .flex-#{$breakpoint}-row {
+      flex-direction: row;
+    }
+
+    .flex-#{$breakpoint}-column {
+      flex-direction: column;
+    }
+  }
+}

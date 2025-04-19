@@ -1,90 +1,84 @@
-/* 变量定义 */
-@forward 'variables-module' show $root-variables, $dark-mode-variables;
-
-$root-variables: (
-  // Brand 品牌色
-  --brand-1: #ff6200,
-  --brand-2: #ffb300,
-  --brand-3: #ffe0cc,
-  --brand-4: #ffefe5,
-
-  // Text 文字色
-  --gray-1: #000000,
-  --gray-2: #333333,
-  --gray-3: #666666,
-  --gray-4: #999999,
-  --gray-5: #cccccc,
-  --gray-6: #e6e6e6,
-  --gray-7: #f7f7f7,
-  --white: #ffffff,
-
-  // Fill 填充色
-  --color-fill-1: var(--white),
-  --color-fill-2: var(--gray-7),
-  --color-mask: rgba(14, 17, 25, 0.5),
-  --color-toast: rgba(17, 25, 45, 0.9),
-
-  // Line 线条色
-  --color-line-1: var(--gray-5),
-  --color-line-2: var(--gray-4),
-
-  // Functional 功能色
-  --highlight-1: var(--brand-1),
-  --highlight-2: var(--brand-2),
-  --color-warning: #ff0300,
-  --color-success: #1dbf1d,
-  --color-link: #0080ff,
-
-  // 尺寸
-  --font-size-xs: 12px,
-  --font-size-sm: 14px,
-  --font-size-md: 16px,
-  --font-size-lg: 18px,
-
-  --radius-sm: 4px,
-  --radius-md: 6px,
-  --radius-lg: 12px,
-
-  --shadow-1: 0 3px 4px 0 rgba(0, 0, 0, 0.04),
-  --shadow-2: 0 4px 8px 0 rgba(0, 0, 0, 0.08),
-  --shadow-3: 0 6px 10px 0 rgba(0, 0, 0, 0.08),
-
-  // 间距
-  --gutter: 20px,
-  --msg-avatar-gap: 8px,
-  --msg-gutter: 48px,
-  --rate-width: 32px
-);
-
-$dark-mode-variables: (
-  --brand-3: #343B4D,
-  --brand-4: #332B26,
-
-  --gray-1: #f3f6f8,
-  --gray-2: #cacfd7,
-  --gray-3: #7c889c,
-  --gray-4: #444c5a,
-  --gray-5: rgba(204, 223, 255, 0.15),
-  --gray-6: #2c3241,
-  --gray-7: #1c222e,
-  --white: #0e1119,
-
-  --color-mask: rgba(14, 17, 25, 0.7),
-  --color-toast: rgba(243, 246, 248, 0.9),
-
-  --color-link: #409fff,
-  --color-warning: #ff6666
-);
+/**
+ * 变量定义
+ * 包含颜色、字体、间距等基础变量
+ */
 
 :root {
-  @each $name, $value in $root-variables {
-    #{$name}: #{$value};
-  }
+  // Brand 品牌色
+  --brand-1: #ff6200;
+  --brand-1-rgb: 255, 98, 0;
+  --brand-2: #ffb300;
+  --brand-2-rgb: 255, 179, 0;
+  --brand-3: #ffe0cc;
+  --brand-4: #ffefe5;
+  --blue-50: #f0f7ff;
+
+  // Text 文字色
+  --gray-1: #000000;
+  --gray-2: #333333;
+  --gray-3: #666666;
+  --gray-4: #999999;
+  --gray-5: #cccccc;
+  --gray-6: #e6e6e6;
+  --gray-7: #f7f7f7;
+  --white: #ffffff;
+
+  // Fill 填充色
+  --color-fill-1: var(--white);
+  --color-fill-2: var(--gray-7);
+  --color-mask: rgba(14, 17, 25, 0.5);
+  --color-toast: rgba(17, 25, 45, 0.9);
+
+  // Line 线条色
+  --color-line-1: var(--gray-5);
+  --color-line-2: var(--gray-4);
+
+  // Functional 功能色
+  --highlight-1: var(--brand-1);
+  --highlight-2: var(--brand-2);
+  --color-warning: #ff0300;
+  --color-success: #1dbf1d;
+  --color-link: #0080ff;
+
+  // 尺寸
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+
+  --shadow-1: 0 2px 5px 0 rgba(0, 0, 0, 0.05);
+  --shadow-2: 0 4px 10px 0 rgba(0, 0, 0, 0.08);
+  --shadow-3: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
+  --shadow-focus: 0 0 0 3px var(--brand-4);
+
+  // 间距
+  --gutter: 20px;
+  --msg-avatar-gap: 8px;
+  --msg-gutter: 48px;
+  --rate-width: 32px;
 }
 
 // 暗色模式
 html[data-color-scheme="dark"] {
-  @each $name, $value in $dark-mode-variables {
-    #{$name}: #{$value};
-  }
+  --brand-3: #343B4D;
+  --brand-4: #332B26;
+
+  --gray-1: #f3f6f8;
+  --gray-2: #cacfd7;
+  --gray-3: #7c889c;
+  --gray-4: #444c5a;
+  --gray-5: rgba(204, 223, 255, 0.15);
+  --gray-6: #2c3241;
+  --gray-7: #1c222e;
+  --white: #0e1119;
+
+  --color-mask: rgba(14, 17, 25, 0.7);
+  --color-toast: rgba(243, 246, 248, 0.9);
+
+  --color-link: #409fff;
+  --color-warning: #ff6666;
 }

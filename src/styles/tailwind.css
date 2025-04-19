@@ -1,3 +1,13 @@
+/**
+ * Tailwind CSS 导入
+ * 按照官方推荐的顺序导入
+ */
+
+/* 基础样式 */
 @tailwind base;
+
+/* 组件样式 */
 @tailwind components;
+
+/* 工具类 */
 @tailwind utilities;

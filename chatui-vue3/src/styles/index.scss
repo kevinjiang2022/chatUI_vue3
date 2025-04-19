@@ -1,0 +1,22 @@
+@use './variables.scss' as variables;
+@use './global.scss' as global;
+
+// 老年模式
+.ChatApp[data-elder-mode="true"] {
+  font-size: 16px;
+
+  .Bubble {
+    font-size: 16px;
+  }
+
+  .Composer-input {
+    font-size: 16px;
+  }
+
+  .QuickReply {
+    font-size: 16px;
+    height: 36px;
+    line-height: 34px;
+    border-radius: 18px;
+  }
+}

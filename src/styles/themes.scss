@@ -1,0 +1,61 @@
+/**
+ * 主题模块
+ * 包含主题相关的变量、混合器和工具类
+ */
+@use 'sass:map';
+@use 'sass:color';
+@use './variables.scss' as variables;
+
+// 主题混合器
+@mixin theme($theme-name, $theme-colors) {
+  .theme-#{$theme-name} {
+    @each $name, $value in $theme-colors {
+      #{$name}: #{$value};
+    }
+  }
+}
+
+// 默认主题
+$default-theme: (
+  --primary-color: var(--brand-1),
+  --secondary-color: var(--brand-2),
+  --background-color: var(--white),
+  --text-color: var(--gray-1),
+  --border-color: var(--gray-5)
+);
+
+// 深色主题
+$dark-theme: (
+  --primary-color: var(--brand-2),
+  --secondary-color: var(--brand-1),
+  --background-color: var(--gray-7),
+  --text-color: var(--white),
+  --border-color: var(--gray-4)
+);
+
+// 应用主题
+@include theme('default', $default-theme);
+@include theme('dark', $dark-theme);
+
+// 主题切换工具类
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+  }
+
+  &__icon {
+    font-size: 20px;
+  }
+}
