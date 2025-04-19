@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+/chatui-vue3/node_modules
+/chatui-vue3/.vscode
+/chatui-vue3/dist
+/chatui-vue3/dist-ssr
+
